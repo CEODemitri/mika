@@ -1,15 +1,18 @@
 import Image from "next/image";
 import { ModeToggle } from "../components/ui/Toggle";
+import  MoonModel  from "../components/MoonModel";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen max-w-md flex-col m-auto items-center gap-8">
+      
       <ModeToggle/>
       <div className="z-10 w-full items-center justify-between text-sm lg:flex">
         <h1 className="tracking-[0.6em] text-xl md:text-3xl font-bold uppercase text-center">Phase Name</h1>
         <h2 className="tracking-[0.6em] text-md md:text-xl font-bold uppercase text-center mt-8">Days In Phase</h2>
       </div>
-      <Image src="/default.png" alt="default img" width={300} height={200} className="m-auto"/>
+      {/* <Image src="/default.png" alt="default img" width={300} height={200} className="m-auto"/> */}
+      <MoonModel />
       <article className="w-full flex justify-between px-8 text-xs md:text-lg uppercase tracking-[0.8em] font-semibold text-neutral-500">
         <div>
           <h3>Previous</h3>
@@ -44,7 +47,7 @@ export default function Home() {
         </div>
       </article>
 
-      <div className="w-full h-72 bg-neutral-200 transform skew-y-[-12deg] origin-top-right mt-8 self-end flex flex-col gap-6 items-end">
+      <div className="w-full h-72 bg-neutral-200 transform skew-y-[-12deg] origin-top-right mt-8 self-end flex flex-col gap-6 items-end text-right pt-10 pr-4">
         <div className="transform -skew-y-[-12deg] uppercase tracking-widest">
           <h4 className="underline underline-offset-2 text-sm font-medium">Zodiac</h4>
           <p className="no-underline tracking-[0.5em] text-sm">Gemini</p>
