@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { MenuIcon, XIcon } from 'lucide-react'
+import { ModeToggle } from './ui/Toggle'
+
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,8 +18,8 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="shadow-md">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
@@ -35,6 +37,9 @@ export function Navbar() {
               ))}
             </div>
           </div>
+
+          <ModeToggle/>
+
           <div className="-mr-2 flex items-center sm:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -46,10 +51,7 @@ export function Navbar() {
               <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col">
                 <div className="flex justify-between items-center py-4 px-6 border-b">
                   <span className="text-xl font-bold">Menu</span>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                    <XIcon className="h-6 w-6" />
-                    <span className="sr-only">Close menu</span>
-                  </Button>
+                  
                 </div>
                 <div className="flex-grow py-6 px-6">
                   {navItems.map((item) => (

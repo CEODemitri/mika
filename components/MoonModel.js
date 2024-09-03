@@ -3,6 +3,7 @@
 // components/MoonModel.js
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const MoonModel = () => {
   const mountRef = useRef(null);
@@ -31,6 +32,12 @@ const MoonModel = () => {
 
       scene.add(moon);
     });
+
+    // Set up OrbitControls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = true;
 
     // Adjust camera position
     camera.position.z = 4;
