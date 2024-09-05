@@ -14,15 +14,14 @@ export function Navbar() {
     { name: 'Home', href: '#' },
     { name: 'About', href: '#' },
     { name: 'Services', href: '#' },
-    { name: 'Contact', href: '#' },
   ]
 
   return (
     <nav className="shadow-md">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex items-center">
               <span className="text-xl font-bold tracking-wider">MIKA</span>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -48,9 +47,9 @@ export function Navbar() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col">
+              <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col p-0">
                 <div className="flex justify-between items-center py-4 px-6 border-b">
-                  <span className="text-xl font-bold">Menu</span>
+                  <span className="text-xl font-bold">MIKA</span>
                   
                 </div>
                 <div className="flex-grow py-6 px-6">
@@ -58,15 +57,15 @@ export function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                      className="block py-2 text-base font-medium text-gray-900 hover:bg-gray-800 hover:text-gray-500 rounded-md px-2"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
                     </a>
                   ))}
                 </div>
-                <div className="mt-auto bg-gray-900 text-white py-4 px-6">
-                  <p className="text-sm">© 2023 Your Company. All rights reserved.</p>
+                <div className="mt-auto bg-gray-900 text-white py-4 px-6 h-52">
+                  <p className="text-sm">© 2024 Mika: For Kosmonauts. All rights we were born with.</p>
                 </div>
               </SheetContent>
             </Sheet>

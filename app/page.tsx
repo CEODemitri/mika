@@ -47,7 +47,7 @@ export default function Home() {
         </div>
       </article>
 
-      <div className="w-full h-72 bg-neutral-200 transform skew-y-[-12deg] origin-top-right mt-8 self-end flex flex-col gap-6 items-end text-right pt-10 pr-4">
+      <div className="w-full h-72 bg-neutral-200 transform skew-y-[-12deg] origin-top-right mt-8 self-end flex flex-col gap-6 items-end text-right pt-10 pr-4  dark:text-black">
         <div className="transform -skew-y-[-12deg] uppercase tracking-widest">
           <h4 className="underline underline-offset-2 text-sm font-medium">Zodiac</h4>
           <p className="no-underline tracking-[0.5em] text-sm">Gemini</p>
