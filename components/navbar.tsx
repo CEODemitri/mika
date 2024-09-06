@@ -19,7 +19,7 @@ export function Navbar() {
   ]
   return (
     <nav className="bg-background border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-md mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-primary">
@@ -58,12 +58,12 @@ export function Navbar() {
                 <div className="flex-grow py-6 px-6">
                   {navItems.map((item) => (
                     <a
-                      key={item.name}
+                      key={item.label}
                       href={item.href}
                       className="block py-2 text-base font-medium text-gray-900 hover:bg-gray-800 hover:text-gray-500 rounded-md px-2"
                       onClick={() => setIsOpen(false)}
                     >
-                      {item.name}
+                      {item.label}
                     </a>
                   ))}
                 </div>

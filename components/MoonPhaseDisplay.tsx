@@ -14,7 +14,7 @@ export default function MoonPhaseDisplay({ data }: { data: any }) {
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md">
       <h1 className="tracking-[0.6em] text-xl md:text-3xl font-bold uppercase text-center hover:animate-bounce">{moonPhase}</h1>
-        <h2 className="tracking-[0.6em] text-md md:text-xl font-bold uppercase text-center mt-8">{age} Days In Phase</h2>
+      <h2 className="tracking-[0.6em] text-md md:text-xl font-bold uppercase text-center mt-8">{age} Days In Phase</h2>
     </div>
   )
 }
