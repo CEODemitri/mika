@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export default function MoonPhaseDisplay({ data }) {
+export default function MoonPhaseDisplay({ data }: { data: any }) {
   const [moonPhase, setMoonPhase] = useState(data.moon.phase_name)
   const [age, setAge] = useState(data.moon.age_days)
 
