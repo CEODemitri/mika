@@ -18,7 +18,7 @@ export function Navbar() {
 
   return (
     <nav className="shadow-md">
-      <div className="min-w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-w-[100%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex items-center">

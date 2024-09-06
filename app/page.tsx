@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex min-h-screen max-w-md flex-col m-auto items-center gap-8">
       <Navbar/>
       <div className="z-10 w-full items-center justify-between text-sm lg:flex">
-        <h1 className="tracking-[0.6em] text-xl md:text-3xl font-bold uppercase text-center">Phase Name</h1>
+        <h1 className="tracking-[0.6em] text-xl md:text-3xl font-bold uppercase text-center hover:animate-bounce">Phase Name</h1>
         <h2 className="tracking-[0.6em] text-md md:text-xl font-bold uppercase text-center mt-8">Days In Phase</h2>
       </div>
       {/* <Image src="/default.png" alt="default img" width={300} height={200} className="m-auto"/> */}
