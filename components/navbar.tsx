@@ -5,34 +5,37 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { MenuIcon, XIcon } from 'lucide-react'
 import { ModeToggle } from './ui/Toggle'
+import Link from 'next/link'
 
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Services', href: '#' },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
   ]
-
   return (
-    <nav className="shadow-md">
-      <div className="min-w-[100%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex items-center">
-              <span className="text-xl font-bold tracking-wider">MIKA</span>
-            </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+    <nav className="bg-background border-b">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/" className="text-2xl font-bold text-primary">
+              MIKA
+            </Link>
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
+                <Link
+                  key={item.href}
                   href={item.href}
-                  className="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                  className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  {item.name}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
