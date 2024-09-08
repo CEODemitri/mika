@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ModeToggle } from "../components/ui/Toggle";
 import  MoonModel  from "../components/MoonModel";
 import { Navbar } from "@/components/navbar";
 import MoonPhaseData from "@/components/MoonPhaseData";
