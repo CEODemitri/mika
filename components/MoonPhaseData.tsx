@@ -14,4 +14,4 @@ export default async function MoonPhaseData() {
   const data = await getMoonPhaseData()
 
   return <MoonPhaseDisplay data={data} />
-}
+};
