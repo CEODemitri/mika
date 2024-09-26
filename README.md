@@ -14,3 +14,11 @@ components/MoonPhaseData.tsx (6:21) @ fetch
 
 7 | if (!res.ok) {
 8 | throw new Error('Failed to fetch moon phase data')
+
+9 25
+Added http to solve the error
+
+NEXT:
+
+- [ ] fix image per phase.
+- [ ] previous and next
