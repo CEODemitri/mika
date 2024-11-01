@@ -14,12 +14,11 @@ export function Navbar() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ]
   return (
-    <nav className="bg-background border-b">
-      <div className="w-md mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="w-full bg-background border-b">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-primary">
@@ -42,7 +41,7 @@ export function Navbar() {
 
           <ModeToggle/>
 
-          <div className="-mr-2 flex items-center sm:hidden">
+          <div className="-mr-2 flex items-center md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">

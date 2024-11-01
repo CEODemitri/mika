@@ -49,8 +49,8 @@ const MoonModel = () => {
       // Rotate the moon
       const moon = scene.children.find((child) => child instanceof THREE.Mesh);
       if (moon) {
-        moon.rotation.y += 0.009; // Rotate around Y-axis
-        moon.rotation.x += 0.00005; // Rotate around X-axis for a bit of 3D effect
+        moon.rotation.y += 0.0009; // Rotate around Y-axis
+        moon.rotation.x += 0.0005; // Rotate around X-axis for a bit of 3D effect
       }
 
       renderer.render(scene, camera);

@@ -11,8 +11,9 @@ export default function Home() {
         <MoonPhaseData/>
         
       </div>
-      {/* <Image src="/default.png" alt="default img" width={300} height={200} className="m-auto"/> */}
-      <MoonModel />
+      <div className="bg-slate-500/30">
+        <MoonModel />
+      </div>
       <article className="w-full flex justify-between px-8 text-xs md:text-lg uppercase tracking-[0.8em] font-semibold text-neutral-500">
         <div>
           <h3>Previous</h3>
@@ -46,6 +47,11 @@ export default function Home() {
           <p>M</p>
         </div>
       </article>
+
+      {/* sun info */}
+      <div className="sun">
+        <h2>Sun</h2>
+      </div>
 
       <div className="w-full h-72 bg-neutral-200 transform skew-y-[-12deg] origin-top-right mt-8 self-end flex flex-col gap-6 items-end text-right pt-10 pr-4  dark:text-black">
         <div className="transform -skew-y-[-12deg] uppercase tracking-widest">
