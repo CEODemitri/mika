@@ -1,43 +1,29 @@
 import Link from 'next/link'
+import type { Post } from '@/app/blog/page'
 
-const posts = [
-  {
-    slug: 'mercury-retrograde-guide',
-    category: 'Astrology',
-    title: 'Surviving Mercury Retrograde: A Practical Guide',
-    excerpt:
-      'Mercury retrograde doesn\'t have to mean chaos. Here\'s how to use the slowdown to your advantage and emerge clearer than ever.',
-    date: 'May 1, 2026',
-    readTime: '5 min read',
-  },
-  {
-    slug: 'new-moon-ritual',
-    category: 'Moon',
-    title: 'New Moon Ritual for Setting Powerful Intentions',
-    excerpt:
-      'The new moon is a monthly reset — a moment of darkness that holds infinite potential. Learn how to harness it with a simple, meaningful practice.',
-    date: 'Apr 22, 2026',
-    readTime: '7 min read',
-  },
-  {
-    slug: 'pluto-aquarius',
-    category: 'Transits',
-    title: 'Pluto in Aquarius: The Great Collective Reset',
-    excerpt:
-      'For the first time in 225 years, Pluto enters Aquarius — a generational shift in power structures, technology, and what it means to belong.',
-    date: 'Apr 10, 2026',
-    readTime: '9 min read',
-  },
-]
+const CATEGORY_SYMBOLS: Record<string, string> = {
+  Astrology: '♈',
+  Moon: '☽',
+  Mythology: '⊕',
+  Transits: '♄',
+  Rituals: '✦',
+  Guides: '◎',
+}
 
-export default function BlogSection() {
+function formatDate(iso: string) {
+  try {
+    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  } catch { return iso }
+}
+
+export default function BlogSection({ posts }: { posts: Post[] }) {
   return (
     <section className="py-24 px-4 bg-card" id="blog">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
           <div>
-            <p className="text-gold text-xs tracking-[0.4em] uppercase font-sans font-medium mb-3">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase font-sans font-medium mb-3">
               From the Archive
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground text-balance">
@@ -46,45 +32,69 @@ export default function BlogSection() {
           </div>
           <Link
             href="/blog"
-            className="text-gold hover:text-primary text-sm font-sans tracking-wide underline underline-offset-4 transition-colors whitespace-nowrap"
+            className="text-primary hover:opacity-70 text-sm font-sans tracking-wide underline underline-offset-4 transition-opacity whitespace-nowrap"
           >
             View All Posts &rarr;
           </Link>
         </div>
 
-        {/* Post list */}
-        <div className="flex flex-col divide-y divide-border">
-          {posts.map((post, i) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group grid md:grid-cols-[1fr_2fr_auto] gap-4 items-start py-8 hover:opacity-80 transition-opacity"
-            >
-              {/* Index + category */}
-              <div className="flex md:flex-col gap-3 md:gap-1">
-                <span className="text-muted-foreground font-sans text-xs tabular-nums">
-                  0{i + 1}
-                </span>
-                <span className="text-gold font-sans text-xs tracking-widest uppercase">
-                  {post.category}
-                </span>
-              </div>
-              {/* Title + excerpt */}
-              <div className="flex flex-col gap-2">
-                <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors text-balance">
-                  {post.title}
-                </h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                  {post.excerpt}
-                </p>
-              </div>
-              {/* Meta */}
-              <div className="flex md:flex-col items-end gap-2 md:gap-1 text-right whitespace-nowrap">
-                <span className="font-sans text-xs text-muted-foreground">{post.date}</span>
-                <span className="font-sans text-xs text-muted-foreground">{post.readTime}</span>
-              </div>
-            </Link>
-          ))}
+        {/* App-store style card grid with eclipse hover */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          {posts.map((post, i) => {
+            const symbol = CATEGORY_SYMBOLS[post.category] ?? '✦'
+            return (
+              <Link
+                key={post._id}
+                href={`/blog/${post.slug?.current ?? post.slug}`}
+                className="blog-card group relative bg-card overflow-hidden block"
+                style={{ minHeight: '300px' }}
+              >
+                {/* Default state */}
+                <div className="relative z-10 flex flex-col justify-between h-full p-7 transition-opacity duration-500 group-hover:opacity-0">
+                  <div className="flex items-start justify-between">
+                    <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-primary border border-primary/30 px-2 py-1">
+                      {post.category}
+                    </span>
+                    <span className="font-serif text-5xl font-bold text-foreground/10 leading-none tabular-nums">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="flex-1 flex items-center justify-center">
+                    <span className="text-7xl text-foreground/20 select-none">{symbol}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground leading-snug text-balance">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center gap-3 mt-3">
+                      <span className="font-sans text-xs text-muted-foreground">{formatDate(post.publishedAt)}</span>
+                      <span className="w-1 h-1 rounded-full bg-border" />
+                      <span className="font-sans text-xs text-muted-foreground">{post.readTime}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Eclipse overlay */}
+                <div className="eclipse-overlay absolute inset-0 z-20 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="eclipse-radial absolute inset-0 pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-serif text-lg text-primary">{symbol}</span>
+                      <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-primary/80">{post.category}</span>
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-white leading-snug text-balance">{post.title}</h3>
+                  </div>
+                  <div className="relative z-10">
+                    <p className="font-sans text-sm text-white/80 leading-relaxed mb-5 line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="font-sans text-xs text-white/50">{formatDate(post.publishedAt)} · {post.readTime}</span>
+                      <span className="font-sans text-xs text-primary border border-primary/50 px-3 py-1 tracking-widest">READ &rarr;</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>
