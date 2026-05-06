@@ -161,7 +161,7 @@ const posts = [
 export async function POST() {
   try {
     const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-    const token = process.env.SANITY_API_READ_TOKEN
+    const token = process.env.SANITY_API_WRITE_TOKEN
 
     if (!projectId) {
       return NextResponse.json(
@@ -171,7 +171,7 @@ export async function POST() {
     }
     if (!token) {
       return NextResponse.json(
-        { error: 'SANITY_API_READ_TOKEN is not set. A write-capable token is required to seed content.' },
+        { error: 'SANITY_API_WRITE_TOKEN is not set. Generate an Editor token in your Sanity project API settings and add it as SANITY_API_WRITE_TOKEN.' },
         { status: 500 }
       )
     }

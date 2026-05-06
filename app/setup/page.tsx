@@ -141,8 +141,8 @@ export default function SetupPage() {
                 },
                 {
                   step: '03',
-                  title: 'Generate an API token',
-                  body: 'Go to API → Tokens → Add API token. Give it Editor permissions so it can create/update documents. Paste the token into the SANITY_API_READ_TOKEN variable in v0 project settings.',
+                  title: 'Generate API tokens',
+                  body: 'Go to API → Tokens → Add API token. Create a Viewer token for SANITY_API_READ_TOKEN, and an Editor token for SANITY_API_WRITE_TOKEN. Add both in v0 project settings under Vars.',
                 },
                 {
                   step: '04',
@@ -207,8 +207,8 @@ export default function SetupPage() {
                     <p className="font-sans text-xs font-semibold text-destructive">Seeding failed</p>
                     <p className="font-sans text-xs text-destructive/80 mt-1">{seedMessage}</p>
                     <p className="font-sans text-xs text-muted-foreground mt-2">
-                      Ensure your <code className="font-mono">SANITY_API_READ_TOKEN</code> has
-                      Editor or above permissions in your Sanity project settings, and that your dataset exists.
+                      Ensure <code className="font-mono">SANITY_API_WRITE_TOKEN</code> is set
+                      with Editor or above permissions in your Sanity project settings, and that your dataset exists.
                     </p>
                   </div>
                 </div>
