@@ -14,12 +14,13 @@ export const client = createClient({
   useCdn: !token,
 })
 
-// Write client — used only in server-side seed/mutation routes
+// Write client — used only in server-side seed/mutation routes.
+// Requires a Sanity token with Editor or Write permissions.
 export const writeClient = createClient({
   projectId,
   dataset,
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_API_READ_TOKEN, // same token; re-use read token for seeding
+  token: process.env.SANITY_API_WRITE_TOKEN,
   useCdn: false,
 })
 
