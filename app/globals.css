@@ -127,4 +127,106 @@
     0% { opacity: 0.6; }
     100% { opacity: 1; }
   }
+
+  /* ── Blog card eclipse overlay ──────────────────────────────── */
+  .blog-card {
+    cursor: pointer;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* The radial eclipse that sweeps in — dark centre, fading to the card colour */
+  .eclipse-radial {
+    background: radial-gradient(
+      ellipse 85% 85% at 50% 50%,
+      hsl(230, 50%, 4%) 0%,
+      hsl(230, 45%, 6%) 55%,
+      transparent 100%
+    );
+    opacity: 0.97;
+  }
+
+  /* Eclipse overlay must sit atop and cover the card */
+  .eclipse-overlay {
+    background: hsl(230, 45%, 5%);
+  }
+
+  /* ── Spellbook / Harry Potter panel styles ─────────────────── */
+  .spellbook-panel {
+    background: hsl(230, 38%, 7%);
+    border: 1px solid hsl(42, 72%, 38% / 0.35);
+    box-shadow:
+      inset 0 0 40px hsl(42, 72%, 10% / 0.3),
+      0 4px 32px hsl(230, 50%, 3% / 0.6);
+  }
+
+  .spellbook-header {
+    background: hsl(230, 42%, 9%);
+    border-bottom: 1px solid hsl(42, 72%, 38% / 0.25);
+  }
+
+  .spellbook-card {
+    background: hsl(230, 40%, 8%);
+    border: 1px solid hsl(42, 72%, 40% / 0.2);
+    transition: border-color 0.2s ease;
+  }
+
+  .spellbook-card:hover {
+    border-color: hsl(42, 72%, 50% / 0.5);
+  }
+
+  /* Quill-style inputs */
+  .quill-input {
+    background: hsl(230, 42%, 7%);
+    caret-color: hsl(var(--primary));
+  }
+
+  .quill-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2);
+  }
+
+  /* Cast button — gold parchment style */
+  .cast-button {
+    background: hsl(42, 72%, 14%);
+    color: hsl(42, 72%, 70%);
+    border: 1px solid hsl(42, 72%, 40% / 0.5);
+  }
+
+  .cast-button:hover:not(:disabled) {
+    background: hsl(42, 72%, 58%);
+    color: hsl(230, 45%, 5%);
+    border-color: hsl(42, 72%, 58%);
+  }
+
+  /* Result scroll */
+  .result-scroll {
+    background: hsl(230, 42%, 6%);
+    animation: unfurl 0.4s ease forwards;
+  }
+
+  @keyframes unfurl {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Parchment texture effect (subtle noise via repeating pattern) */
+  .parchment-texture {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        hsl(42, 40%, 50% / 0.012) 2px,
+        hsl(42, 40%, 50% / 0.012) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 3px,
+        hsl(42, 40%, 50% / 0.008) 3px,
+        hsl(42, 40%, 50% / 0.008) 6px
+      );
+  }
 }
