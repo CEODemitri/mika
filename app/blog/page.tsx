@@ -1,3 +1,8 @@
+import { client, blogListQuery } from '@/lib/sanity'
+import { Navbar } from '@/components/navbar'
+import Footer from '@/components/Footer'
+import BlogGrid from '@/components/BlogGrid'
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 export type Post = {
   _id: string
@@ -46,11 +51,6 @@ const fallbackPosts: Post[] = [
     author: 'Mika Editorial',
   },
 ]
-
-import { client, blogListQuery } from '@/lib/sanity'
-import { Navbar } from '@/components/navbar'
-import Footer from '@/components/Footer'
-import BlogGrid from '@/components/BlogGrid'
 
 export const revalidate = 60
 
