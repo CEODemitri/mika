@@ -2,6 +2,7 @@ import { Navbar } from '@/components/navbar'
 import HeroSection from '@/components/HeroSection'
 import MoonSection from '@/components/MoonSection'
 import AstrologySection from '@/components/AstrologySection'
+import PlanetaryPositionsSection from '@/components/PlanetaryPositionsSection'
 import MythologySection from '@/components/MythologySection'
 import BlogSection from '@/components/BlogSection'
 import NewsletterSection from '@/components/NewsletterSection'
@@ -60,6 +61,7 @@ export default async function Home() {
         <HeroSection />
         <MoonSection />
         <AstrologySection />
+        <PlanetaryPositionsSection />
         <MythologySection />
         <BlogSection posts={posts.slice(0, 3)} />
         <NewsletterSection />
