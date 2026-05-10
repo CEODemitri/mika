@@ -11,23 +11,21 @@ export default function MythologyPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-background pt-16 overflow-hidden">
+      <main className="min-h-screen bg-background overflow-hidden">
 
-        {/* Hero */}
-        <section className="relative border-b border-border/50 overflow-hidden">
-          <div className="parchment-texture absolute inset-0 pointer-events-none z-0" />
-
-          {/* Floating background glyphs */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 select-none">
-            {['神','天','龍','月','星','霊','運','命','光','影','火','水'].map((kanji, i) => (
+        {/* Page header */}
+        <section className="relative pt-28 pb-10 px-4 sm:px-6 lg:px-8 border-b border-border/40 overflow-hidden">
+          {/* Background glyphs */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+            {['神','天','龍','月','星','霊','運','命','光','影'].map((kanji, i) => (
               <span
                 key={i}
-                className="absolute font-serif font-black text-foreground/[0.03]"
+                className="absolute font-serif font-black text-foreground/[0.025]"
                 style={{
-                  fontSize: `${80 + (i % 4) * 40}px`,
-                  top: `${5 + ((i * 41) % 85)}%`,
-                  left: `${(i * 8.5) % 94}%`,
-                  transform: `rotate(${(i * 13) % 40 - 20}deg)`,
+                  fontSize: `${90 + (i % 3) * 50}px`,
+                  top: `${(i * 37) % 90}%`,
+                  left: `${(i * 11) % 95}%`,
+                  transform: `rotate(${(i * 15) % 30 - 15}deg)`,
                 }}
               >
                 {kanji}
@@ -35,27 +33,26 @@ export default function MythologyPage() {
             ))}
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-16 bg-primary/40" />
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-12 bg-primary/40" />
               <span className="font-sans text-[10px] tracking-[0.6em] uppercase text-primary">
                 The Divine Archive
               </span>
-              <div className="h-px w-16 bg-primary/40" />
+              <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-foreground leading-tight text-balance mb-5">
-              Pantheons of the
-              <br />
+            <h1 className="font-serif text-4xl md:text-6xl font-bold text-foreground leading-tight text-balance">
+              Pantheons of the{' '}
               <span className="text-primary italic">Ancient World</span>
             </h1>
-            <p className="font-sans text-muted-foreground text-base max-w-xl mx-auto leading-relaxed">
-              Select a pantheon below to journey through its gods, titans, and legendary figures — each a living myth written in the stars.
+            <p className="font-sans text-muted-foreground text-sm max-w-md mx-auto mt-4 leading-relaxed">
+              Choose a pantheon below to journey through its gods and legendary figures — each a living myth written in the stars.
             </p>
           </div>
         </section>
 
-        {/* Carousel section */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8">
+        {/* Carousel — full width, 60-75% card area */}
+        <section className="py-14 px-4 sm:px-6 lg:px-8">
           <MythologyCarousel />
         </section>
 
