@@ -63,10 +63,10 @@ export default function MoonSection() {
                 <span aria-hidden="true">&rarr;</span>
               </Link>
               <Link
-                href="/moon/calendar"
+                href="/moon/phases"
                 className="font-sans text-xs tracking-wide text-muted-foreground hover:text-primary underline underline-offset-4 transition-colors duration-150"
               >
-                Lunar Calendar
+                Phases &amp; Calendar
               </Link>
             </div>
           </div>
