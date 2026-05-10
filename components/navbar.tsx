@@ -24,6 +24,7 @@ const navItems = [
     label: 'Moon',
     href: '/moon',
     children: [
+      { href: '/moon/map', label: 'Moon Map' },
       { href: '/moon/phases', label: 'Moon Phases' },
       { href: '/moon/calendar', label: 'Lunar Calendar' },
       { href: '/moon/rituals', label: 'Lunar Rituals' },
