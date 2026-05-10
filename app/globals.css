@@ -154,31 +154,32 @@
 
   /* ── Spellbook / Harry Potter panel styles ─────────────────── */
   .spellbook-panel {
-    background: hsl(230, 38%, 7%);
-    border: 1px solid hsl(42, 72%, 38% / 0.35);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--primary) / 0.25);
     box-shadow:
-      inset 0 0 40px hsl(42, 72%, 10% / 0.3),
-      0 4px 32px hsl(230, 50%, 3% / 0.6);
+      inset 0 0 40px hsl(var(--primary) / 0.04),
+      0 4px 32px hsl(var(--background) / 0.6);
   }
 
   .spellbook-header {
-    background: hsl(230, 42%, 9%);
-    border-bottom: 1px solid hsl(42, 72%, 38% / 0.25);
+    background: hsl(var(--muted));
+    border-bottom: 1px solid hsl(var(--border));
   }
 
   .spellbook-card {
-    background: hsl(230, 40%, 8%);
-    border: 1px solid hsl(42, 72%, 40% / 0.2);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
     transition: border-color 0.2s ease;
   }
 
   .spellbook-card:hover {
-    border-color: hsl(42, 72%, 50% / 0.5);
+    border-color: hsl(var(--primary) / 0.5);
   }
 
   /* Quill-style inputs */
   .quill-input {
-    background: hsl(230, 42%, 7%);
+    background: hsl(var(--input));
+    color: hsl(var(--foreground));
     caret-color: hsl(var(--primary));
   }
 
@@ -189,20 +190,21 @@
 
   /* Cast button — gold parchment style */
   .cast-button {
-    background: hsl(42, 72%, 14%);
-    color: hsl(42, 72%, 70%);
-    border: 1px solid hsl(42, 72%, 40% / 0.5);
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.4);
   }
 
   .cast-button:hover:not(:disabled) {
-    background: hsl(42, 72%, 58%);
-    color: hsl(230, 45%, 5%);
-    border-color: hsl(42, 72%, 58%);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
   }
 
   /* Result scroll */
   .result-scroll {
-    background: hsl(230, 42%, 6%);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
     animation: unfurl 0.4s ease forwards;
   }
 

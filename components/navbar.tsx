@@ -131,22 +131,34 @@ export function Navbar() {
                     <MenuIcon className="h-5 w-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[300px] sm:w-[360px] flex flex-col p-0 bg-background border-border">
-                  <div className="flex items-center justify-between py-5 px-6 border-b border-border">
-                    <span className="font-serif text-xl font-bold tracking-widest text-primary">MIKA</span>
+                <SheetContent
+                  side="left"
+                  className="w-[300px] sm:w-[360px] flex flex-col p-0 bg-background border-border"
+                >
+                  {/* Sheet header */}
+                  <div className="flex items-center justify-between py-5 px-6 border-b border-border bg-background">
+                    <div className="flex items-center gap-2">
+                      <span className="font-serif text-xl font-bold tracking-widest text-primary">MIKA</span>
+                      <span className="text-[9px] text-muted-foreground tracking-[0.3em] uppercase font-sans mt-0.5">
+                        for kosmonauts
+                      </span>
+                    </div>
                   </div>
-                  <nav className="flex-1 overflow-y-auto py-4 px-4" aria-label="Mobile navigation">
+
+                  {/* Nav links */}
+                  <nav className="flex-1 overflow-y-auto py-3 px-3 bg-background" aria-label="Mobile navigation">
                     {navItems.map((item) => (
-                      <div key={item.label}>
+                      <div key={item.label} className="mb-0.5">
                         {item.children ? (
                           <div>
                             <button
-                              className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-foreground hover:text-primary rounded-md transition-colors"
+                              className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-150"
                               onClick={() =>
                                 setExpandedMobile(
                                   expandedMobile === item.label ? null : item.label
                                 )
                               }
+                              aria-expanded={expandedMobile === item.label}
                             >
                               {item.label}
                               <ChevronDown
@@ -156,12 +168,12 @@ export function Navbar() {
                               />
                             </button>
                             {expandedMobile === item.label && (
-                              <div className="ml-3 mt-1 mb-2 border-l border-border pl-3 flex flex-col gap-1">
+                              <div className="ml-3 mt-1 mb-2 border-l-2 border-primary/20 pl-3 flex flex-col gap-0.5">
                                 {item.children.map((child) => (
                                   <Link
                                     key={child.href}
                                     href={child.href}
-                                    className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-primary rounded transition-colors"
+                                    className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-sm transition-colors duration-150"
                                     onClick={() => setIsOpen(false)}
                                   >
                                     {child.label}
@@ -173,7 +185,7 @@ export function Navbar() {
                         ) : (
                           <Link
                             href={item.href}
-                            className="block px-3 py-2.5 text-sm font-medium text-foreground hover:text-primary rounded-md transition-colors"
+                            className="block px-3 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-150"
                             onClick={() => setIsOpen(false)}
                           >
                             {item.label}
@@ -182,7 +194,9 @@ export function Navbar() {
                       </div>
                     ))}
                   </nav>
-                  <div className="bg-muted border-t border-border py-5 px-6">
+
+                  {/* Sheet footer */}
+                  <div className="bg-muted border-t border-border py-4 px-6">
                     <p className="text-xs text-muted-foreground tracking-wide leading-relaxed">
                       &copy; {new Date().getFullYear()} Mika: For Kosmonauts.
                       <br />
