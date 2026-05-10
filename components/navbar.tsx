@@ -19,15 +19,7 @@ const navItems = [
       { href: '/astrology/transits', label: 'Transits' },
     ],
   },
-  {
-    label: 'Mythology',
-    href: '/mythology',
-    children: [
-      { href: '/mythology/greek', label: 'Greek Myths' },
-      { href: '/mythology/roman', label: 'Roman Myths' },
-      { href: '/mythology/celestial-lore', label: 'Celestial Lore' },
-    ],
-  },
+  { href: '/mythology', label: 'Mythology' },
   {
     label: 'Moon',
     href: '/moon',
